@@ -1,6 +1,6 @@
 {
   "name": "@cow-axios/cache-adapter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Axios adapter that allows to cache response data",
   "keywords": [
     "axios",
@@ -28,7 +28,8 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "^4.3.5"
+    "vite": "^4.3.5",
+    "vite-plugin-banner": "^0.7.0"
   },
   "repository": {
     "type": "git",

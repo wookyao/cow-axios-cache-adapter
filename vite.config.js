@@ -1,4 +1,6 @@
 import { defineConfig } from "vite";
+import banner from "vite-plugin-banner";
+import pkg from "./package.json";
 
 export default defineConfig({
   build: {
@@ -17,4 +19,10 @@ export default defineConfig({
       formats: ["es", "cjs", "umd"],
     },
   },
+  plugins: [
+    banner({
+      outDir: "./dist",
+      content: `/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
+    }),
+  ],
 });
