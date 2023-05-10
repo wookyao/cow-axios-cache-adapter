@@ -1,6 +1,6 @@
 {
-  "name": "@cow/axios-cache-adapter",
-  "version": "0.0.1",
+  "name": "@cow-axios/cache-adapter",
+  "version": "0.0.5",
   "description": "cache adapter for axios",
   "keywords": [
     "axios",

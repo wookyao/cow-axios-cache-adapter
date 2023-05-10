@@ -5,11 +5,11 @@ Axios adapter that allows to cache response data.
 ## Installation
 
 ```sh
-npm install @cow/axios-cache-adapter
+npm install @cow-axios/cache-adapter
 
 Or
 
-yarn add @cow/axios-cache-adapter
+yarn add @cow-axios/cache-adapter
 ```
 
 ## 使用
@@ -20,7 +20,7 @@ yarn add @cow/axios-cache-adapter
 
 ```js
 import axios from "axios";
-import AxiosCacheAdapter from "@cow/axios-cache-adapter";
+import AxiosCacheAdapter from "@cow-axios/cache-adapter";
 
 const http = axios.create({
   baseURL: "v1/api/",
