@@ -3,11 +3,12 @@ import { genCacheKey } from "./utils.js";
 
 function cacheAdapter(
   adapter,
-  options = { max: 20, cacheTime: 1000 * 60 * 60 }
+  options = { max: 20, cacheTime: 1000 * 60 * 60, useCache: false }
 ) {
   const {
     max, // 最大缓存数量
     cacheTime, // 毫秒
+    useCache, // 全部缓存配置， 默认不启用
   } = options;
 
   let maxCacheCount = max;
@@ -26,11 +27,15 @@ function cacheAdapter(
     // 删除自身适配器，否则会死循环
     delete config.adapter;
 
-    const { method, force, cacheExpire } = config;
+    console.log(config.cache, "cacheConfig");
 
-    const key = genCacheKey(config);
+    // 判断 是否开启 缓存
+    const openCacheAdapter =
+      config.cache == undefined ? useCache : config.cache;
 
-    if (["GET"].includes(String(method).toUpperCase()) && key) {
+    if (String(config.method).toUpperCase() === "GET" && openCacheAdapter) {
+      const { force, cacheExpire } = config;
+      const key = genCacheKey(config);
       let response = cache.get(key);
 
       if (!response || force) {

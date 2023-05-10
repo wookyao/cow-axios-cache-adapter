@@ -5,6 +5,7 @@ const http = axios.create({
   timeout: 5000,
   adapter: cowAxiosCache(axios, {
     max: 3,
+    useCache: true,
   }),
 });
 
@@ -13,6 +14,7 @@ function request() {
   http
     .get("vue", {
       force: count % 3 == 0,
+      cache: false,
     })
     .then((res) => {
       console.log(res, count);
@@ -24,6 +26,7 @@ function request2() {
   http
     .get("react", {
       cacheExpire: 1000 * 3,
+      // cache: true,
     })
     .then((res) => {
       console.log(res, count);

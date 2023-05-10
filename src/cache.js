@@ -14,15 +14,19 @@ class Cache {
       // 清理过期数据
       this._clearExpireCache();
     }
+
+    if (!key) return;
+
     // 设置前 先删除原有的数据 保证 key 在队列中顺序
     this.delete(key);
 
     // 设置 map
-    this._maps.set(key, val);
+    this._maps.set(key, val || {});
     this._keys.push(key);
   }
 
   get(key) {
+    if (!key) return null;
     const cacheItem = this._maps.get(key);
 
     if (!cacheItem) return null;
@@ -39,6 +43,8 @@ class Cache {
   }
 
   delete(key) {
+    if (!key) return false;
+
     const flag = this._maps.delete(key);
 
     // 删除队列中对应的key
