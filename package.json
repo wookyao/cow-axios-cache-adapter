@@ -1,7 +1,7 @@
 {
   "name": "@cow-axios/cache-adapter",
   "version": "0.0.5",
-  "description": "cache adapter for axios",
+  "description": "Axios adapter that allows to cache response data",
   "keywords": [
     "axios",
     "adapter",
