@@ -1,0 +1,27 @@
+{
+  "name": "@cow/axios-cache-adapter",
+  "version": "0.0.1",
+  "description": "cache adapter for axios",
+  "author": "姚旭 <wook.yao@foxmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "browser": "./dist/index.umd.js",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.3.5"
+  }
+}
